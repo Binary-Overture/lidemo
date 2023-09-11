@@ -24,7 +24,7 @@ func main() {
 		}
 	}(dial)
 
-	proClient := service.NewProServiceClient(dial)
+	proClient := service.NewProdServiceClient(dial)
 
 	request := &service.ProductRequest{
 		ProId: 123,
