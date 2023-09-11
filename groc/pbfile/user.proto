@@ -1,0 +1,12 @@
+//语法版本
+syntax = "proto3";
+
+option go_package ="../service";
+package service;
+//消息 传输的对象
+message User {
+  string username = 1;
+  int32 age = 2;
+  optional string password = 3;
+  repeated string addresses = 4;
+}

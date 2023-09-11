@@ -1,0 +1,20 @@
+//语法版本
+syntax = "proto3";
+
+option go_package ="../service";
+package service;
+//消息 传输的对象
+
+message ProductRequest{
+  int32 pro_id=1;
+}
+
+message ProductResponse{
+  int32 prod_stock = 1;
+}
+
+//定义服务主体
+service ProdService {
+//定义方法
+  rpc GetProductStock(ProductRequest) returns(ProductResponse);
+}
