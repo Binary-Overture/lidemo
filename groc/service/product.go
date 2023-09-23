@@ -15,5 +15,5 @@ func (p *productService) GetProductStock(context context.Context, request *Produ
 }
 
 func (p *productService) GetStockById(id int32) int32 {
-	return 100
+	return id
 }

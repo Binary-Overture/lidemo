@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"firstproject/groc/client/auth"
 	"firstproject/groc/service"
 	"fmt"
 	"google.golang.org/grpc"
@@ -12,7 +13,14 @@ import (
 func main() {
 	//建立到grpc服务器的连接，就下面的pbfile吧，WithTransportCredentials是可选项选择，
 	//insecure.NewCredentials()函数是创建一个不安全的TLS配置，也就是不进行加密和身份验证.
-	dial, err := grpc.Dial(":8002", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	//cert, err := tls.LoadX509KeyPair("cert/server.pem", "cert/server.key")
+	//certpool := x509.NewCertPool()
+	//ca, err := os.ReadFile("cert/server.csr")
+	auth := &auth.Authentication{
+		User:     "aaa",
+		Password: "1234",
+	}
+	dial, err := grpc.Dial(":8002", grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithPerRPCCredentials(auth))
 	if err != nil {
 		log.Fatal("服务器连接出错", err)
 	}

@@ -55,7 +55,7 @@ func (c *prodServiceClient) GetProductStock(ctx context.Context, in *ProductRequ
 type ProdServiceServer interface {
 	// 定义方法
 	GetProductStock(context.Context, *ProductRequest) (*ProductResponse, error)
-	mustEmbedUnimplementedProdServiceServer()
+	//mustEmbedUnimplementedProdServiceServer()
 }
 
 // UnimplementedProdServiceServer must be embedded to have forward compatible implementations.
