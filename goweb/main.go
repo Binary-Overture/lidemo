@@ -11,7 +11,7 @@ import (
 
 func main() {
 	r := gin.Default()
-	r.GET("/login", controller.Login)
+	r.POST("/login", controller.Login)
 	inxit.Iniit()
 	fmt.Println("-----------------")
 	global.DB = inxit.DB
