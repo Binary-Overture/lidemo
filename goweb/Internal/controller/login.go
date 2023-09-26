@@ -1,6 +1,7 @@
-package main
+package controller
 
 import (
+	"firstproject/goweb/global"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
@@ -12,7 +13,7 @@ type User struct {
 	Password string
 }
 
-func login(c *gin.Context) {
+func Login(c *gin.Context) {
 	username := c.PostForm("username")
 	password := c.PostForm("password")
 	if isValid(username, password) {
@@ -28,7 +29,7 @@ func login(c *gin.Context) {
 
 func isValid(username string, password string) bool {
 	var users, test User
-	DB.Model(&User{}).First(&users, "username=?", username, "password=?", password)
+	global.DB.Model(&User{}).First(&users, "username=?", username, "password=?", password)
 	if test == users {
 		log.Fatal("没有数据，账号或密码错误")
 		return false
