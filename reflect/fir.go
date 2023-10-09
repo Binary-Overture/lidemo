@@ -1,15 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 )
 
-func main() {
-	x := Spring(true)
-	fmt.Println(x)
-	return
-}
+//func main() {
+//	x := Spring(true)
+//	fmt.Println(x)
+//	return
+//}
 
 func Spring(x interface{}) string {
 	type Stringer interface {

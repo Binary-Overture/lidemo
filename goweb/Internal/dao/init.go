@@ -1,4 +1,4 @@
-package inxit
+package dao
 
 import (
 	"fmt"
