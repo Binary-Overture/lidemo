@@ -1,15 +1,15 @@
-package test
+package models
 
 import (
-	"cncyx.xyz/models"
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"log"
-	"testing"
 )
 
-func TestGormTest(t *testing.T) {
+var DB = Init()
+
+func Init() *gorm.DB {
 	username := "root"
 	password := "root"
 	host := "127.0.0.1"
@@ -19,16 +19,7 @@ func TestGormTest(t *testing.T) {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local&timeout=%s", username, password, host, port, Dbname, timeout)
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("gorm init error")
 	}
-	data := make([]*models.ProblemBasic, 0)
-	err = db.Find(&data).Error
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println("aa=>", data)
-	for _, v := range data {
-		fmt.Printf("Problem => %v\n", v)
-	}
-
+	return db
 }
