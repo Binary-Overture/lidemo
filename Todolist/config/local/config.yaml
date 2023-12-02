@@ -1,0 +1,22 @@
+system:
+  domain: Todolist
+  version: 1.0
+  appEnv: "test"
+  HttpPort: ":4000"
+  Host: "localhost"
+
+mysql:
+  default:
+    dialect: "mysql"
+    dbHost: "127.0.0.1"
+    dbPort: "3306"
+    dbName: "todolist"
+    userName: "root"
+    password: "root"
+    charset: "utf8mb4"
+
+redis:
+  dbName: 1
+  host: 127.0.0.1
+  address: 6379
+  password: 123456
